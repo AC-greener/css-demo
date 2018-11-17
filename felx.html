@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>flex</title>
+  <style>
+    .parent {
+      display: flex;
+      border: 1px solid red;
+      width: 500px;
+      justify-content: space-around;
+      align-items: flex-start;
+    }
+    .child {
+      border: 1px solid black;
+      margin: 2px;
+    }
+    .child:nth-child(1) {
+    }
+    .child:nth-child(2) {
+    }
+    .child:nth-child(3) {
+      align-self: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="child">111 <br> 111 <br> 111 <br> 111 </div>
+    <div class="child">222  <br>  222  <br> 222 </div>
+    <div class="child">333</div>
+  </div>
+</body>
+</html>
