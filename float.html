@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+  *{margin:0;padding:0;}
+ul,ol{list-style:none;}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.wrapper{
+  width: 750px;
+  margin: 20px auto;
+  border: 1px sold green;
+}
+ul  li {
+  background: #ddd;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/*上面的代码不准动，请在下面写代码*/
+
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+ul {
+}
+ul  li {
+  float: left;
+  width: 180px;
+  margin: 5px;
+}
+
+/* ul li:nth-child(4n+1) {
+  margin-left: 0;
+}
+ul li:nth-child(4n) {
+  margin-right: 0;
+} */
+ul {
+  background-color: blueviolet;
+}
+.wrap {
+  margin-left: -5px;
+  margin-right: -5px;
+}
+</style>
+</head>
+<body>
+  <h1>平均布局</h1>
+  <div class="wrapper">
+    <ul >
+      <div class="wrap clearfix">
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+          <li>6</li>
+          <li>7</li>
+          <li>8</li>
+      </div>
+    </ul>
+  </div>
+</body>
+</html>
