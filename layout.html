@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>三栏布局</title>
+  <style>
+    body {
+      padding:50px;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    .parent {
+      width: 100%;
+      border: 1px solid red;
+      display: grid;
+      grid-template-columns: 200px auto 30%;
+    }
+    .left {
+      background-color: aqua;
+    }
+    .right {
+      background-color:blue;
+    }
+    .center {
+      background-color:brown;
+    }
+  </style>
+</head>
+<body>
+  <h1>grid 布局 左 200 中auto 右30%</h1>
+  <div class="parent ">
+    <div class="left">
+      left
+    </div>
+    <div class="center">
+      center
+    </div>
+    <div class="right">
+      right
+    </div>
+  </div>
+</body>
+</html>
