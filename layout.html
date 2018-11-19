@@ -11,20 +11,21 @@
     }
     * {
       box-sizing: border-box;
-      justify-self: end;
-      justify-items:flex-end
     }
     .parent {
-      width: 100%;
       border: 1px solid red;
-      display: grid;
-      grid-template-columns: 200px auto 30%;
+      display: table;
+      width: 100%;
+    }
+    .parent > div {
+      display: table-cell;
     }
     .left {
+      width: 300px;
       background-color: aqua;
-      
     }
     .right {
+      width: 30%;
       background-color:blue;
     }
     .center {
@@ -34,7 +35,7 @@
 </head>
 <body>
   <h1>grid 布局 左 200 中auto 右30%</h1>
-  <div class="parent ">
+  <div class="parent">
     <div class="left">
       left
     </div>
