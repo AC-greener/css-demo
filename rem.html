@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable: no, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>rem</title>
   <script>
     var pageWidth = window.innerWidth
     console.log(pageWidth)
-    document.write(`<style>html{font-size: ${pageWidth}px}</style>`)
+    document.write(`<style>html{font-size: ${pageWidth / 10}px}</style>`)
   </script>
   <style>
     * {
@@ -26,9 +26,9 @@
     .parent .child {
       float: right;
       background: #ccc;
-      width: 0.4rem;
-      height: 0.2rem;
-      margin: 0.05rem 0.05rem;
+      width: 4rem;
+      height: 2rem;
+      margin: 0.5rem 0.5rem;
     }
   </style>
 </head>
