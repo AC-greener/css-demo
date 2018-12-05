@@ -29,22 +29,41 @@
   <script>
     // getComputedStyle(dom)
     // dom.getBoundingClientRect
-    var div = document.querySelector('#xxx')
-    function animation(el) {
-      var element = el
-      var colors = ['red', 'yellow', 'blue']
-      var count = 0
-      var timer = setInterval(() => {
-        if(count === colors.length-1) {
-          clearInterval(timer)
-        }
-        element.style.backgroundColor = colors[count++]
-        element.style.left = '200px'
-        console.log( window.getComputedStyle(element))
-        // console.log( element.style.width)
-      }, 1000) 
-    }
-    animation(div)
+    // var div = document.querySelector('#xxx')
+    // function animation(el) {
+    //   var element = el
+    //   var colors = ['red', 'yellow', 'blue']
+    //   var count = 0
+    //   var timer = setInterval(() => {
+    //     if(count === colors.length-1) {
+    //       clearInterval(timer)
+    //     }
+    //     element.style.backgroundColor = colors[count++]
+    //     element.style.left = '200px'
+    //     console.log( window.getComputedStyle(element))
+    //     // console.log( element.style.width)
+    //   }, 1000) 
+    // }
+    // animation(div)
+    requestAnimationFrame
+
   </script>
+  <script>
+   // getComputedStyle(dom)
+    // dom.getBoundingClientRect
+    var count = 0    
+    function animation() {
+      var element = document.querySelector('#xxx')
+      var colors = ['red', 'yellow', 'blue']
+      console.log(element.style.backgroundColor)
+      if(element.style.backgroundColor != 'blue') {
+        element.style.backgroundColor = colors[count++]
+        requestAnimationFrame(animation)
+      }
+    }
+    
+    requestAnimationFrame(animation)
+    </script>
+  <!-- <script src="localhost:3000/api?callback=writeData"></script> -->
 </body>
 </html>
