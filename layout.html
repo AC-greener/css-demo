@@ -7,35 +7,83 @@
   <title>三栏布局</title>
   <style>
     body {
-      padding:50px;
+      padding:0px;
+      margin: 0px;
     }
     * {
       box-sizing: border-box;
+      padding:0px;
     }
-    .parent {
-      border: 1px solid red;
+    .grid.parent {
+      display: grid;
+      grid-template-columns: 200px auto 30%;
+    }
+    .parent>div {
+      height: 200px;
+    }
+    .left {
+      background-color: red;
+    }
+    .center {
+      background-color: aqua
+    }
+    .right {
+      background-color: blue
+    }
+    .clearfix::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+    .float>div {
+      float: left;
+    }
+    .float>.left {
+      width: 200px;
+    }
+    .float>.right {
+      width: 30%;
+    }
+    .float>.center {
+      width: calc(70% - 200px);
+    }
+    .parent.flex {
+      display: flex;
+    }
+    .flex .left {
+      width: 200px;
+    }
+    .flex .center {
+      flex: 1;
+      /*flex-grow:1;
+        justify-content:center
+       */
+    }
+    .flex .right {
+      width: 30%;
+    }
+    .table {
       display: table;
       width: 100%;
     }
-    .parent > div {
-      display: table-cell;
+    .table div {
+      display: table-cell
     }
-    .left {
-      width: 300px;
-      background-color: aqua;
+    .table .left {
+      width: 200px;
     }
-    .right {
+    .table .right {
       width: 30%;
-      background-color:blue;
     }
-    .center {
-      background-color:brown;
+    .table .center {
+      /* width: 200px; */
     }
   </style>
 </head>
 <body>
+ <section> 
   <h1>grid 布局 左 200 中auto 右30%</h1>
-  <div class="parent">
+  <div class="parent grid">
     <div class="left">
       left
     </div>
@@ -46,5 +94,49 @@
       right
     </div>
   </div>
+ </section>
+
+ <section> 
+  <h1>float 布局 左 200 中auto 右30%</h1>
+  <div class="parent float clearfix">
+    <div class="left">
+      left
+    </div>
+    <div class="center">
+      center
+    </div>
+    <div class="right">
+      right
+    </div>
+  </div>
+ </section>
+ <section> 
+  <h1>flex 布局 左 200 中auto 右30%</h1>
+  <div class="parent flex">
+    <div class="left">
+      left
+    </div>
+    <div class="center">
+      center
+    </div>
+    <div class="right">
+      right
+    </div>
+  </div>
+ </section>
+ <section> 
+  <h1>table 布局 左 200 中auto 右30%</h1>
+  <div class="parent table">
+    <div class="left">
+      left
+    </div>
+    <div class="center">
+      center
+    </div>
+    <div class="right">
+      right
+    </div>
+  </div>
+ </section>
 </body>
 </html>
