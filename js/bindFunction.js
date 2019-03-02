@@ -47,3 +47,5 @@ Function.prototype.bind3 = function(context) {
     return self.apply(context, args.concat(bindArgs))
   }
 }
+Array.isArray()
+[1] instanceof Array
