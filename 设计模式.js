@@ -16,22 +16,46 @@ class Man {
 
 var person = new Man('zhang')
 
-console.log(person)
 
 //单例模式
-var Singleton = function(name){
-  this.name = name;
-  this.instance = null;
-};
-Singleton.prototype.getName = function(){
-  return this.name;
-}
-// 获取实例对象
-function getInstance(name) {
-  if(!this.instance) {
-      this.instance = new Singleton(name);
+  class Singleton {
+    constructor(name) {
+      this.name = name
+    }
   }
-  return this.instance;
+
+  Singleton.getInstance = (function() {
+    let instance
+    return function(name) {
+      if (!instance) {
+        instance = new Singleton(name)
+      }
+      return instance
+    }
+  })()
+
+  let s1 = Singleton.getInstance('zhang')
+  console.log(s1)
+let s2 = Singleton.getInstance()
+// 装饰器模式
+class Circle {
+  draw() {
+    console.log('画一个圆')
+  }
+
 }
-// 测试单体模式的实例
-var a = getInstance("aa");
+class Decorator {
+  constructor(circle) {
+    this.circle = circle
+  }
+  draw() {
+    this.circle.draw()
+    this.setBorder()
+  }
+  setBorder() {
+    console.log('加一个边框')
+  }
+}
+let circle = new Circle()
+let dec = new Decorator(circle)
+dec.draw()
