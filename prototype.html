@@ -18,8 +18,10 @@
     var p = {
       name: 'o2'
     }
-    var o2 = Object.create(p)
+    var o2 = Object.create(b)
     o2.__proto__ === p
+    var o3 = Object.create(null)
+    var o4 = new Object()
 
     class Parent {
       constructor(value) {
