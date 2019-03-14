@@ -1,7 +1,10 @@
 let handler = {
   get: function(target, name){
-      console.log('进入get函数', target, name)
-      return name in target ? target[name] : 37;
+      target[name] = (name in target) ? target[name]: {}
+      if(typeof target[name] === 'object') {
+        return new Proxy(target[name], handler)
+      }
+      return target[name]
   },
   set:function(target, name, value){
     console.log('setter', target, name)
