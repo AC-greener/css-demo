@@ -74,7 +74,7 @@
     function Child(value) {
       Parent.call(this, value)
     }
-    // Object.create()方法创建一个新对象，使用现有的对象来提供新创建的对象的__proto__。 
+    // Object.create()方法创建一个新对象，使用参数中的对象来提供新创建的对象的__proto__。 
     Child.prototype = Object.create(Parent.prototype)
     Child.prototype.constructor = Child
 
@@ -82,6 +82,7 @@
 
     child.getValue() // 1
     child instanceof Parent // true
+
   </script>
 </body>
 

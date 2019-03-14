@@ -6,12 +6,24 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>flex</title>
   <style>
+    /* 
+      flex-wrap
+      flex-direction
+      justify-content
+      align-items:stretch（默认值，意思是伸展，拉伸）; flex-start（意思是所有的元素往侧轴的起点靠）;
+
+      flex-grow
+      flex-shrink
+      order
+
+    */
     .parent {
       display: flex;
       border: 1px solid red;
       width: 500px;
       justify-content: space-around;
       align-items: flex-start;
+      top: calc(50% -250px)
     }
     .child {
       border: 1px solid black;
