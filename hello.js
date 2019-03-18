@@ -34,7 +34,7 @@ function swap(array, i, j) {
 var quickSort = function (array, left, right) {
   var index;
   if (array.length > 1) {
-    index = (left + right) / 2
+    index = partition(array, left, right)
     if (left < index - 1) {
       quick(array, left, index - 1);
     }
@@ -42,7 +42,8 @@ var quickSort = function (array, left, right) {
       quick(array, index, right);
     }
   }
-};
+}
+
 var partition = function (array, left, right) {
   var pivot = array[Math.floor((right + left) / 2)], //{8}
     i = left, //{9}
@@ -65,7 +66,7 @@ var partition = function (array, left, right) {
 //选择排序大致的思路是找到数据结构中的最小值并将其放置在第一位，接着找到第二小的值并将其放在第二位
 
 //二分查找
-function binarySearch(target,arr) {
+function binarySearch(target, arr) {
   var start = 0;
   var end = arr.length-1;
 
@@ -74,9 +75,9 @@ function binarySearch(target,arr) {
       if(target==arr[mid]){
           return mid;
       }else if(target>arr[mid]){
-          start   = mid+1;
+          start = mid+1;
       }else{
-          end     = mid-1;
+          end = mid-1;
       }
   }
   return -1;
