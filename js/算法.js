@@ -36,9 +36,9 @@ function judge(value) {
     console.log('undefined')
   }
 }
-judge([])
-judge(null)
-judge(undefined)
+// judge([])
+// judge(null)
+// judge(undefined)
 
 
 
@@ -56,3 +56,13 @@ function f (val) {
     inner.val = val;
     return inner;
 }
+//有一个 字符串里面有很多is 请写一个方法只保留一个is          
+var a = 'aisaaabbblkismmqwis'
+var s = a.slice(a.indexOf('is')+2)
+console.log(s)
+s= s.replace(/is/g, '')
+console.log(s)
+s = a.slice(0, a.indexOf('is')+2).concat(s)
+console.log(s)
+
+// String.replace(/^\s+|\s+$/, '')

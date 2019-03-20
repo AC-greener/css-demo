@@ -24,7 +24,6 @@ function MPromise(fn){
   fn(resolve, reject)
   return {
     then: function(onFuifilled, onRejected) {
-      console.log(self)
       if (self.state === FULFILLED) {
         onFuifilled(self.value);
       }
@@ -43,4 +42,3 @@ var promise = new MPromise((x,y) =>{
 promise.then((z)=>{
   console.log(z)  // 101
 })
-// 6516jzhz
