@@ -1,15 +1,3 @@
-// func是用户传入需要防抖的函数
-// wait是等待时间
-const debounce = (func, wait = 50) => {
-  // 缓存一个定时器id
-  let timer = 0
-  return function (...args) {
-    if (timer) clearTimeout(timer)
-    timer = setTimeout(() => {
-      func.apply(this, args)
-    }, wait)
-  }
-}
 
 // 让我们来实现一下冒泡排序：
 var bubbleSort = function () {
@@ -34,7 +22,6 @@ function swap(array, i, j) {
 var quickSort = function (array, left, right) {
   var index;
   if (array.length > 1) {
-    index = partition(array, left, right)
     if (left < index - 1) {
       quick(array, left, index - 1);
     }

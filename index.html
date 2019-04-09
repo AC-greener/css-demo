@@ -49,35 +49,43 @@
       top: calc(50% - 100px);
       left: calc(50% - 100px);
     }
+    #app {
+      width: 200px;
+      height: 200px;
+      border: 1px solid red;
+      margin: 300px;
+    }
+    #app .js {
+      /* margin: 20px; */
+      padding-top: 30px;
+      padding-bottom: 130px;
+      /* padding-left: 30px; */
+      border: 1px solid green;
+    }
   </style>
 </head>
 
 <body>
-  11
-  <style>
-    .div {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      /* //用来设置如何处理元素中的空白。 nowrap让文字不换行 */
-      width: 100px;
-    }
 
-    .aa {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-    }
-  </style>
-  <!-- <script src="./js/indexDB.js"></script> -->
-  <script src="./js/算法.js">
-    var eventBus =  new Vue()
-    eventBus.on('xxx', () => {
+  <p>
+      替换元素：img，其内容与src有关， input， video
+      不可替换元素： h1，div，span
+      span是行内不可替换元素()
+      而input是行内替换元素，第一次听说，哭瞎。
+  </p>
+  <div id="app">
+      <span>hello</span>
+      <span class="js">JS</span>
+  </div>
+  <script src="./js/单例模式.js"></script> 
+  <script src="./发布订阅模式.js">
+    // var eventBus =  new Vue()
+    // eventBus.on('xxx', () => {
 
-    })
-    eventBus.$emit('xxx', 1)
+    // })
+    // eventBus.$emit('xxx', 1)
+
+
   </script>
 </body>
 
