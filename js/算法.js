@@ -64,7 +64,7 @@ s = s.replace(/is/g, '')
 // console.log(s)
 s = a.slice(0, a.indexOf('is') + 2).concat(s)
 // console.log(s)
-
+(/^\s+|\s+$/)
 // String.replace(/^\s+|\s+$/, '')
 
 

@@ -1,92 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <style>
-    .x {
-      width: 0;
-      height: 0;
-      border: 100px solid transparent;
-      border-left: 173px solid red;
-    }
-
-    .parent {
-      width: 100%;
-      display: grid;
-      height: 200px;
-      grid-template-columns: 200px auto 300px
-    }
-
-    .left {
-      background: red
-    }
-
-    .right {
-      background: gray
-    }
-
-    .center {
-      background: yellow
-    }
-
-    .parent {
-      position: relative;
-      border: 1px solid red;
-      padding: 20px;
-      width: 500px;
-      height: 300px;
-    }
-
-    .child {
-      background-color: aqua;
-      height: 200px;
-      width: 200px;
-      position: absolute;
-      top: calc(50% - 100px);
-      left: calc(50% - 100px);
-    }
-    #app {
-      width: 200px;
-      height: 200px;
-      border: 1px solid red;
-      margin: 300px;
-    }
-    #app .js {
-      /* margin: 20px; */
-      padding-top: 30px;
-      padding-bottom: 130px;
-      /* padding-left: 30px; */
-      border: 1px solid green;
-    }
-  </style>
 </head>
-
 <body>
-
-  <p>
-      替换元素：img，其内容与src有关， input， video
-      不可替换元素： h1，div，span
-      span是行内不可替换元素()
-      而input是行内替换元素，第一次听说，哭瞎。
-  </p>
-  <div id="app">
-      <span>hello</span>
-      <span class="js">JS</span>
-  </div>
-  <script src="./js/单例模式.js"></script> 
-  <script src="./发布订阅模式.js">
-    // var eventBus =  new Vue()
-    // eventBus.on('xxx', () => {
-
-    // })
-    // eventBus.$emit('xxx', 1)
-
-
-  </script>
+  
 </body>
-
 </html>

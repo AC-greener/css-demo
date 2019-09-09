@@ -47,8 +47,9 @@ Function.prototype.bind3 = function(context) {
     return self.apply(context, args.concat(bindArgs))
   }
 }
-function x() {
-
+Function.prototype.bind = function(context) {
+    let self = this
+    let args = Array.prototype.slice()
 }
 
 Array.isArray()
