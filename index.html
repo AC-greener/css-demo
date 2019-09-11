@@ -1,12 +1,147 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
-</html>
+<div class="tag-input">
+  <span class="tag">前端</span>
+  <span class="tag">编程题</span>
+  <span class="tag">示例</span>
+  <span class="tag">标签</span>
+  <input type="text" class="js-input" maxlength="6" placeholder="请输入标签">
+</div>
+<style>
+.tag-input{
+    position: relative;
+    border: 1px solid #cccccc;
+    padding: 0 5px;
+    display: flex;
+    flex-flow: row wrap;
+}
+.js-input{
+    width: 450px;
+    height: 22px;
+    line-height: 22px;
+    font-size: 16px;
+    padding: 0;
+    margin: 5px 0;
+    outline: none;
+    border: none;
+    width: 6.5em;
+    height: 24px;
+    line-height: 24px;
+}
+.tag{
+    padding: 0 10px;
+    margin: 5px 5px 5px 0;
+    background: #25bb9b;
+    color: #ffffff;
+    height: 24px;
+    line-height: 24px;
+    border-radius: 12px;
+    font-size: 13px;
+}
+</style>
+<script>
+var tagInput = {
+    isInited: false,
+    init: init,
+    bindEvent: bindEvent,
+    addTag: addTag,
+    removeTag: removeTag
+};
+tagInput.init();
+
+function init() {
+    var that = this;
+    if (that.isInited) return;
+    that.isInited = true;
+    // 请修改这一行代码，保存class为js-input的输入框的dom元素引用
+    that.input = document.querySelector('.js-input');
+    that.bindEvent();
+}
+
+function bindEvent() {
+    var that = this;
+    var input = that.input;
+    if (!input) return;
+    input.addEventListener('keydown', function (event) {
+        // 请修改这一行代码，判断用户是否按了回车键
+        var isEnter = event.keyCode === 13;
+        // 请修改这一行代码，判断用户是否按了删除键
+        var isDelete = event.keyCode === 8;
+
+        (isEnter || isDelete) && event.preventDefault();
+        isEnter && that.addTag();
+        isDelete && that.removeTag();
+    });
+    input.parentNode.addEventListener('click', function () {
+        input.focus();
+    });
+}
+
+function addTag() {
+  let input = document.querySelector('.js-input')
+  let tagList = Array.from(document.querySelectorAll('.tag'))
+  let tagListContent = []
+  for(let key in tagList) {
+    if(tagList.hasOwnProperty(key)) {
+      tagListContent.push(tagList[key].textContent)
+    }
+  }
+  let tagContent = input.textContent
+  if(tagListContent.includes(tagContent)) {
+    input.value = ''
+  } else {
+    if(input.value == '') return
+    let span = document.createElement('span')
+    span.textContent = input.value.trim()
+    span.classList.add('tag')
+    let tagInput = document.querySelector('.tag-input')
+    tagInput.insertBefore(span, input)
+    input.value = ''
+  }
+}
+
+function removeTag() {
+  let input = document.querySelector('.js-input')
+  if(!input.value) {
+    let rencentTag = input.previousSibling
+    let tagInput = document.querySelector('.tag-input')
+    tagInput.removeChild(rencentTag)
+  }
+}
+// 本题为考试单行多行输入输出规范示例，无需提交，不计分。
+while(line=readline()){
+    var lines = line.split(" ");
+    var a = parseInt(lines[0]);
+    var b = parseInt(lines[1]);
+    if(a == b) return a
+    var u, result
+    if(a % 2) {
+      result = a
+      u = a + 1
+      if(b % 2) {
+        result ^= ((b - u + 1) / 2) % 2
+      } else {
+        result ^= ((b - u) / 2) % 2
+        result ^= b
+      }
+      return result
+    } else {
+      result = 0
+      if(b % 2) {
+        result ^=((b - a + 1) / 2) % 2
+      } else {
+        result ^=((b - a) / 2) % 2
+        result ^= b
+      }
+      return result
+    }
+}
+while(line=readline()){
+    var lines = line.split(" ");
+    var a = parseInt(lines[0]);
+    var b = parseInt(lines[1]);
+    var result = 0
+    for(var i = a; i <= b; i++) {
+      result = result ^ i
+    }
+    return result
+}
+</script>
