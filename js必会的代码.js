@@ -77,6 +77,8 @@
     }
   }
 }
+
+//实现数组的forEach方法
 Array.prototype.forEach = function(fn) {
   console.log(this)
   let len = Array.length
@@ -84,6 +86,8 @@ Array.prototype.forEach = function(fn) {
     fn(this[i], i, this)
   }
 }
+
+//原生AJAX
 let xhr = new XMLHttpRequest()
 xhr.open(method, url)
 xhr.onreadystatechange = function() {
