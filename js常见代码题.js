@@ -150,4 +150,59 @@ Array.prototype.find = function(n) {
 var a = [1,2,3,3,2]
 var b = [1,1,1,3,3,2]
 
-//11. 给定无序、不重复的数组 data，取出 n 个数，使其相加和为 sum
+//11. 写一个加法函数(sum)，使他可以同时支持sum(x,y)和sum(x)(y)两种调用方式。
+function sum(x) {
+  if(arguments.length === 1) {
+    return function(y) {
+      return x + y
+    }
+  } else {
+
+  }
+}
+sum(1)(2)
+
+//12, 如何判断一个js对象为空
+/* json数据类型
+数字（整数或浮点数）
+字符串（在双引号中）
+逻辑值（true 或 false）
+数组（在中括号中）
+对象（在大括号中）
+null
+*/
+JSON.stringify(s) === '{}'
+Object.keys().length === 0
+function empty(obj){
+  for (let key in obj){
+    console.log(false);    //非空
+}
+  console.log(true);       //为空
+}
+/*
+头条题目：
+我的第一个详细讲解https过程，
+第二个手写promise.all
+第三个二叉树路径和，都整自闭了😂😂
+*/
+
+//两个数组求交集
+//方法1
+var a1 = [1, 2, 3, 2]
+var a2 = [2, 2]
+function fn(arr1, arr2) {
+  let result = []
+  for(let i = 0; i < arr1.length; i++) {
+    for(let j = 0; j < arr2.length; j++) {
+      if(arr1[i] === arr2[j]) {
+        result.push(arr[i])
+      }
+    }
+  }
+  console.log(result)
+}
+//方法2
+a.filter(v=>b.includes(v))
+//3
+a.filter(function(v){return b.indexOf(v) > -1})
+

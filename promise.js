@@ -2,43 +2,52 @@ const PENDING = 'pending';
 const FULFILLED = 'fulfilled';
 const REJECTED = 'rejected';
 
-function MPromise(fn){
-  let self = this;
-  self.state = PENDING
-  self.value = null
-  self.reson = null
-  function resolve(value) {
-    if(self.state === PENDING) {
-      self.state = FULFILLED
-      self.value = value
-    }
-  }
-
-  function reject(reason) {
-    if(self.state === PENDING) {
-      self.state = REJECTED
-      self.reson = reason
-    }
-  }
-
-  fn(resolve, reject)
-  return {
-    then: function(onFuifilled, onRejected) {
-      if (self.state === FULFILLED) {
-        onFuifilled(self.value);
+class MyPromise{
+    constructor(excutor) {
+      this.status = PENDING
+      this.value = undefined
+      this.reason = undefined
+      this.resolveCallBacks = []
+      this.rejectCallBacks = []
+      let resolve = function(data) {
+        if(this.status === PENDING) {
+          this.status = FULFILLED
+          this.value = data
+          this.resolveCallBacks.forEach(callback => callback())
+        }
       }
-      if (self.state === REJECTED) {
-        onRejected(self.reason);
+      let reject = function(error) {
+        if(this.status === PENDING) {
+          this.status = REJECTED
+          this.reason = error
+          this.rejectCallBacks.forEach(callback => callback())
+        }
+      }
+      try {
+        excutor(resolve, reject)
+      } catch(error) {
+        reject(error)
       }
     }
-  }
+    then(onFulfilled, onRejected) {
+      if(this.status === FULFILLED) {
+        onFulfilled(this.value)
+      }
+      if(this.status === REJECTED) {
+        onRejected(this.reason)
+      }
+      if(this.status === PENDING) {
+        this.resolveCallBacks.push(onFulfilled)
+        this.rejectCallBacks.push(onRejected)
+      }
+    }
 }
 
-var promise = new MPromise((x,y) =>{
-  setTimeout(() => {
-    x(101)
-  }, 3000)
+var p = new MyPromise((resolve, reject) => {
+
 })
-promise.then((z)=>{
-  console.log(z)  // 101
+p.then((data) => {
+  console.log(data)
+}, (error) => {
+  console.log(error)
 })

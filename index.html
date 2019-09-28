@@ -5,55 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box
+    }
+    .parent {
+      width: 400px;
+      height: 100px;
+      border: 2px solid red;
+    }
+    .child {
+      display: inline;
+      margin-left: 50px;
+      /* margin: 10px; */
+      padding: 20px;
+      border:  2px solid black;
+    }
+  </style>
 </head>
 <body>
-  CSP内容安全策略
-  <meta http-equiv="Content-Secturity-Policy" content="script-src 'selft' https://whiteList.com">
-  Content-Security-Policy: script-src 'self' 'https://whiteList.com' 
-  hello
-
+  <h1>hello</h1>
+  <div class="parent">
+    <div class="child">123</div>
+    <div class="child">123</div>
+    <div class="child">123</div>
+    <span>456</span>
+    <div>789</div>
+  </div>
   <script>
-  var Observer = function() {
-    let subs = {}
-    return {
-      getSubs() {
-        return subs
-      },
-      on(type, callback) {
-        if(!subs[type]) {
-          subs[type] = [callback]
-        } else {
-          subs[type].push(callback)
+  var a1 = [1, 2, 3, 2]
+  var a2 = [2, 2]
+  function fn(arr1, arr2) {
+    let result = []
+    for(let i = 0; i < arr1.length; i++) {
+      for(let j = 0; j < arr2.length; j++) {
+        if(arr1[i] === arr2[j]) {
+          result.push(arr1[i])
         }
-      },
-      emit(type, args) {
-        if(subs[type]) {
-          subs[type].forEach(fn => {
-            fn.call(this, args)
-          })
-        } else {
-          throw new Error(`event ${type} not exist!`)
-        }
-      },
-      remove(type) {
-        if(subs[type]) {
-          delete subs[type]
-        }
-      },
-      once(type, callback) {
-        this.on(type, (args) => {
-          callback(args)
-          this.remove(type)
-        })
       }
     }
-  }()
- 
-  Observer.once('xx', (args) => {console.log('xx', args)})
-  Observer.getSubs()
-  Observer.emit('xx', 'hello')
-  Observer.emit('xx', 'hello')
+    console.log(result)
+  }
+  function fn1(arr1, arr2) {
+    let result = []
+    arr1.forEach(value1 => {
+      arr2.forEach(value2 => {
+        if(value1 === value2) {
+          result.push(value1)
+        }
+      })
+    })
+    console.log(Array.from(new Set(result)))
+  }
+  function fn1(arr1, arr2) {
+    let result = []
+    arr1.forEach(value1 => {
+      arr2.forEach(value2 => {
+        if(value1 === value2) {
+          result.push(value1)
+        }
+      })
+    })
+    console.log(Array.from(new Set(result)))
+  }
+  fn1(a1, a2)
   </script>
-  <!-- <script src="./js必会的代码.js"></script> -->
+
 </body>
 </html>
