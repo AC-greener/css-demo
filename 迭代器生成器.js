@@ -1,3 +1,29 @@
+var myObj ={
+  a: 1,
+  b: 2
+}
+Object.defineProperty(myObj, Symbol.iterator, {
+  enumerable: false,
+  writable: false,
+  configurable: true,
+  value: function() {
+    var obj = this
+    var index = 0
+    var ks = Object.keys(obj)
+    return {
+      next: function() {
+        return {
+          value: obj[ks[index++]],
+          done: index > ks.length
+        }
+      }
+    }
+  }
+})
+
+var it = myObj[Symbol.iterator]()
+it.next()
+
 
 // function fn() {
 //   var _value = 0

@@ -6,70 +6,37 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <style>
-    * {
-      box-sizing: border-box
-    }
-    .parent {
-      width: 400px;
-      height: 100px;
+    body {
+      height: 2000px;
       border: 2px solid red;
-    }
-    .child {
-      display: inline;
-      margin-left: 50px;
-      /* margin: 10px; */
-      padding: 20px;
-      border:  2px solid black;
     }
   </style>
 </head>
 <body>
-  <h1>hello</h1>
-  <div class="parent">
-    <div class="child">123</div>
-    <div class="child">123</div>
-    <div class="child">123</div>
-    <span>456</span>
-    <div>789</div>
-  </div>
+  <h1>hello scroll</h1>
   <script>
-  var a1 = [1, 2, 3, 2]
-  var a2 = [2, 2]
-  function fn(arr1, arr2) {
-    let result = []
-    for(let i = 0; i < arr1.length; i++) {
-      for(let j = 0; j < arr2.length; j++) {
-        if(arr1[i] === arr2[j]) {
-          result.push(arr1[i])
+    function fn(root) {
+      let result = []
+      let stack = []
+      while(root) {
+        stack.push(root)
+        root = root.left
+      }
+      while(stack.length) {
+        let current = stack.pop()
+        result.push(current.value)
+        current = current.right
+        while(current) {
+          stack.push(current)
+          current = current.left
         }
       }
+      return result
     }
-    console.log(result)
-  }
-  function fn1(arr1, arr2) {
-    let result = []
-    arr1.forEach(value1 => {
-      arr2.forEach(value2 => {
-        if(value1 === value2) {
-          result.push(value1)
-        }
-      })
-    })
-    console.log(Array.from(new Set(result)))
-  }
-  function fn1(arr1, arr2) {
-    let result = []
-    arr1.forEach(value1 => {
-      arr2.forEach(value2 => {
-        if(value1 === value2) {
-          result.push(value1)
-        }
-      })
-    })
-    console.log(Array.from(new Set(result)))
-  }
-  fn1(a1, a2)
+    function fn(m, s, t) {
+      var useTime = 0
+      
+    }
   </script>
-
 </body>
 </html>
